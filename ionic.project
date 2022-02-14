@@ -1,0 +1,9 @@
+{
+  "name": "Random Diner",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "build",
+    "sass",
+    "watch"
+  ]
+}

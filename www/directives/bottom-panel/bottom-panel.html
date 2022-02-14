@@ -1,0 +1,12 @@
+<nejo-bottom-panel-implementation 
+	on-swipe-up="expand(true)" 
+	on-swipe-down="expand(false)"
+	>
+	<div class="header" ng-click="expand()">
+		<span>{{ expanded ? titleEdit : title }}</span>
+		<span class="button-holder">
+			<ion-icon class="icon ion-android-add"></ion-icon>
+		</span>
+	</div>
+	<div class="body"  ng-transclude></div>
+</nejo-bottom-panel-implementation>

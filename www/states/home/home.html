@@ -1,0 +1,54 @@
+<ion-view view-title="Home">
+	<ion-content scroll="false" class="padded center">
+		<div class="home">
+			
+			<empty class="med"></empty>
+			
+			<div ng-if="diners.length <= 1">
+				<h1>Oh, noe!</h1>
+				<empty></empty>
+				<p>{{ diners.length ? 'Too few' : 'No'; }} diners on your list.</p>
+				<p>Click the button bellow to list your diners.</p>
+				<empty class="small"></empty>
+				<div class="center">
+					<button ui-sref="app.diners">Create a diner</button>
+				</div>
+			</div>
+			<div ng-if="diners.length > 1">
+				<div ng-if="!result">
+					<h1>Wanna go out but dunno where?</h1>
+					<empty></empty>
+					<p>Click on the button and get a random suggestion!</p>
+					<empty class="tiny"></empty>
+					<button class="randomize icon-button" ng-if="!result" ng-click="rand()">
+						<ion-icon name="shuffle"></ion-icon>
+						RANDOMIZE
+					</button>
+				</div>
+				<div ng-if="result && !even">
+					<h3 ng-bind-html="message"></h3>
+					<empty class="small"></empty>
+					<h1 class="name">{{result.name}}</h1>
+					<p class="desc" ng-if="result.description">{{result.description}}</p>
+					<empty class="med"></empty>
+					<button class="randomize icon-button" ng-click="rand()">
+						<ion-icon name="shuffle"></ion-icon>
+						RANDOMIZE AGAIN
+					</button>
+				</div>
+				<div ng-if="result && even">
+					<h3 ng-bind-html="message"></h3>
+					<empty class="small"></empty>
+					<h1 class="name">{{result.name}}</h1>
+					<p class="desc" ng-if="result.description">{{result.description}}</p>
+					<empty class="med"></empty>
+					<button class="randomize icon-button" ng-click="rand()">
+						<ion-icon name="shuffle"></ion-icon>
+						RANDOMIZE AGAIN
+					</button>
+				</div>
+			</div>
+			
+		</div>
+	</ion-content>
+</ion-view>

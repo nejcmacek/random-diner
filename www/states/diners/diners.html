@@ -1,0 +1,86 @@
+<ion-view view-title="Diners">
+	<ion-content scroll="false">
+		
+		<nejo-bottom-panel 
+				expanded-changed="handleExpandedChange(expanded, scope)" 
+				expanded="dialogAdd" 
+				title="Add a diner" 
+				title-edit="Add a diner"
+			>
+			<div class="diner-form" ng-init="error = null">
+				<form name="addNew">
+					<line class="label required" ng-click="log(this)">Diner name</line>
+					<input 
+						type="text" 
+						ng-trim 
+						autocomplete="off"
+						autofocus
+						ng-model="newName" 
+						name="name" 
+						id="add-diner-name" 
+						required 
+						ng-change="msg = null; error = checkError(newName);" 
+						/>
+					<line 
+						class="error small show-hide-trans" 
+						ng-if="error || (addNew.name.$invalid && addNew.name.$dirty && !msg)"
+						>{{ error || "Name must be given!" }}</line>
+					<empty class="small"></empty>
+					<line class="label">Diner description</line>
+					<input 
+						type="text" 
+						ng-trim 
+						autocomplete="off"
+						ng-model="newDesc" 
+						ng-change="msg = null"
+						/>
+				</form>
+				
+				<empty class="small"></empty>
+				<line class="accent show-hide-trans" ng-if="msg">{{msg}}</line>
+				<div class="row right">
+					
+					<button ng-click="add(newName, newDesc, this)">
+						<ion-icon class="icon ion-android-add"></ion-icon>
+						<span>Add</span>
+					</button>
+				</div>
+			</div>
+		</nejo-bottom-panel>
+		
+		<div class="bottom-panel-avoid diners-list">
+			<div ng-if="diners.length > 0" class="list fill">
+				<ion-content>
+					<ion-list>
+						<ion-item
+								class="diner"
+								ng-repeat="diner in diners track by diner.name"
+								ng-class="{ 'no-description': !diner.description }"
+							>
+							<button class="disable-styling" ng-click="remove(diner)">
+								<ion-icon class="icon ion-android-close"></ion-icon>	
+							</button>
+							<div class="text-container">
+								<div class="line name">{{diner.name}}</div>
+								<div class="line desc" ng-if="diner.description">{{diner.description}}</div>
+							</div>
+						</ion-item>
+					</ion-list>
+				</ion-content>
+			</div>
+			<div ng-if="diners.length == 0" class="padded center empty">
+				<empty class="small"></empty>
+				<h1 class="accent">Error 404 - No diners found</h1>
+				<empty class="small"></empty>
+				<p>You can add diners by clicking the button bellow.</p>
+				<p>You can also load the preloaded diner list.</p>
+				<empty class="small"></empty>
+				<p class="row">
+					<button ng-click="loadPreset()">Load preloaded</button>
+					<button ng-click="$parent.dialogAdd = true">Add</button>
+				</p>
+			</div>
+		</div>
+		
+	</ion-content>
+</ion-view>

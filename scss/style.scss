@@ -1,0 +1,681 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+
+/*
+	Font Colors
+
+	-sn 		=> n-th shade
+					(darker, lighter, or more colorful)
+					(shades of same n go together well)
+	-ln			=> n-th light shade
+	-dn			=> n-th darker shade
+	back		=> background color;
+	color		=> text color;
+	accent		=> colorful area, that sould warn user about sth
+	contrast	=> color that is in constrast to accent - they go well together
+	warn		=> warning/error colors
+	shadow		=> shadow color
+*/
+//backgrounds
+$back: 			#fff;
+$back-s1: 		#F8F8F8;
+$back-s2:		#eee;
+//text colors
+$color: 		rgba(0,0,0,0.6);
+$color-d1: 		rgba(0,0,0,0.75);
+$color-d2: 		rgba(0,0,0,0.9);
+$color-l1:		rgba(0,0,0,0.45);
+$color-l2:		rgba(0,0,0,0.3);
+$color-s1:		rgba(0,0,0,0.65);
+$color-s2:		rgba(0,0,0,0.7);
+//accents
+$accent: 		#80ACD4;
+$accent-l1: 	#A4C5E2;
+$accent-l2: 	#D1E3F3;
+$accent-d1: 	#6092BF;
+$accent-d2: 	#457AAB;
+$accent-s1: 	$accent-d1;
+$accent-s2: 	$accent-d2;
+//contrasts
+$contrast: 		$color;
+$contrast-l1: 	$color-l1;
+$contrast-l2: 	$color-l2;
+$contrast-d1: 	$color-d1;
+$contrast-d2: 	$color-d2;
+$contrast-s1: 	$contrast-d1;
+$contrast-s2: 	$contrast-d2;
+//errors/warnings
+$warn: #E87C1C;
+$warn-s1: #F7A052;
+$warn-s2: #E46C00;
+//shadows
+$shadow: 		rgba(0,0,0,0.2);
+$shadow-d1: 	rgba(0,0,0,0.35);
+$shadow-d2: 	rgba(0,0,0,0.5);
+$shadow-l1: 	rgba(0,0,0,0.1);
+$shadow-l2: 	rgba(0,0,0,0.05);
+
+//font size
+$fsize:	  			16px; //default font size
+$fsize-b1: 			18px;
+$fsize-b2: 			20px;
+$fsize-b3: 			24px;
+$fsize-b4: 			28px;
+$fsize-s1: 			14px;
+$fsize-s2: 			12px;
+$fsize-s3: 			10px;
+$fsize-s4: 			8px;
+$fsize-glyph:		24px;
+$fsize-glyph-b1:	28px;
+$fsize-glyph-b2:	32px;
+$fsize-glyph-s1:	20px;
+$fsize-glyph-s2:	16px;
+
+//sizes for diferent things
+$size-tiny:		12px;
+$size-small:	24px;
+$size-med:		32px;
+$size-big:		48px;
+$size-huge:		64px;
+
+//indents
+$indent-tiny:	3px;
+$indent-small:	6px;
+$indent-med:	12px;
+$indent-big:	16px;
+$indent-huge:	24px;
+
+//font settings;
+$fw-normal: normal;
+$fw-bold: bold;
+$fw-light: lighter;
+
+
+//override ionic templates
+$dark: $color !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+
+
+html, body {
+	font-size: $fsize;
+	color: $color;
+	font-weight: $fw-normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $color;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: $fsize-b4 !important;
+}
+h2 {
+	font-size: $fsize-b3 !important;
+}
+h3 {
+	font-size: $fsize-b2 !important;
+}
+h4 {
+	font-size: $fsize-b1 !important;
+}
+
+h5, h6 {
+	font-size: $fsize !important;
+	font-style: italic;
+}
+
+h5 {
+	color: $color-l1;
+}
+
+h6 {
+	color: $color-l2;
+}
+
+i{
+	font-style: italic !important;
+}
+
+a {
+	color: $accent;
+	&:hover {
+		color: $accent-s1;
+	}
+	&:active {
+		color: $accent-s2;
+	}
+}
+
+.center {
+	text-align: center;
+}
+
+input, select   {
+	padding: 0 $indent-small;
+	line-height: $size-med;
+	border-bottom: 1px solid $color-l2 !important;
+	outline: none;
+	color: $color !important;
+	font-size: $fsize !important;
+	width: 100%;
+	box-sizing: border-box;
+	transition: border-color .3s;
+	
+	&:focus {
+		border-color: $accent !important;
+	}
+	&.ng-invalid:not(.ng-pristine), &.ng-invalid.ng-dirtty {
+		border-color: $warn !important;
+	}
+}
+
+ion-icon {
+	font-size: $fsize-glyph;
+}
+
+p {
+	margin: $indent-med 0;
+}
+
+span.back-text {
+	vertical-align: top;
+}
+
+empty {
+	display: block;
+	min-width: 1px;
+	min-height: 1px;
+	&.tiny {
+		height: $size-tiny;
+	}
+	&.small {
+		height: $size-small;
+	}
+	&.med {
+		height: $size-med;
+	}
+	&.big {
+		height: $size-big;
+	}
+	&.huge {
+		height: $size-huge;
+	}
+}
+
+button:not(.disable-styling):not(.button) { 
+	padding: $indent-med $indent-huge;
+	background: $accent;
+	color: $contrast;
+	border-radius: $indent-small;
+	font-size: $fsize;
+	border: none;
+	outline: none;
+	line-height: $size-small;
+	display: inline;
+	vertical-align: middle;
+	text-align: center;
+	margin: $indent-small;
+	text-transform: uppercase;
+	> .icon {
+		font-size: $fsize-glyph;
+		&:first-child {
+			margin-right: $indent-small;
+		}
+		&:last-child {
+			margin-left: $indent-small;
+		}
+	}
+	> * {
+		vertical-align: middle;
+	}
+}
+
+.row {
+	margin: $indent-med 0;
+	padding: 0;
+	display:block;
+	button {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.right {
+	text-align: right;
+	
+	> :last-child {
+		margin-right: 0;
+	}
+}
+
+.fleft {
+	float: left;
+}
+.fright {
+	float: right;
+}
+
+.line {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+line {
+	display: block;
+	width: 100%;
+	margin: 0;
+	line-height: $size-med;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: $size-med;
+}
+
+line.small {
+	line-height: $size-small;
+	height: $size-small;
+}
+
+line.show-hide-trans {
+	&.ng-enter, &.ng-leave {
+		transition: all .3s;
+		overflow: visible; 
+	}
+	&.ng-leave,
+	&.ng-enter.ng-enter-active {
+		opacity: 1;
+		height: $size-med;
+	}
+	&.small.ng-leave,
+	&.small.ng-enter.ng-enter-active {
+		height: $size-small;
+	}
+	&.ng-enter,
+	&.ng-leave.ng-leave-active {
+		height: 0;
+		padding: 0 auto;
+		margin: 0 auto;
+		opacity: 0;
+	}
+}
+
+.stretch {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+ion-side-menu-content {
+	box-shadow: 0px 0px $size-small $size-tiny $shadow !important;
+}
+
+.padded {
+	padding: $indent-med;
+}
+
+nejo-bottom-panel {
+	position:absolute;
+	display:block;
+	bottom:0;
+	left:0;
+	right:0;
+	top: 0;
+}
+
+nejo-bottom-panel-implementation {
+	background: $back;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: $size-big;
+	font-size: $fsize;
+	transition: height .5s;
+	box-shadow: 0 0 $indent-med $indent-small $shadow-l2;
+	z-index: 103;
+	overflow: hidden;
+
+	> .header {
+		background: $back-s1;
+		color: $color-s2;
+		line-height: $size-big;
+		padding-left: $indent-med;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		position: absolute;
+		height: $size-big;
+		top: 0;
+		left: 0;
+		right: 0;
+		font-size: $fsize;
+		z-index: 104;
+
+		.button-holder {
+			float: right;
+			height: $size-big;
+			text-align: center;
+			width: $size-big;
+			.icon {
+				transition: all .3s;
+				background:transparent;
+				display:block;
+			}
+		}
+	}
+
+	> .body {
+		//margin-top: $size-med;
+		position: absolute;
+		top: -100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100%;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		overflow: hidden;
+		transition: all .5s;
+		padding: 0 $indent-med;
+		z-index: 103;
+		opacity: 0;
+	}
+
+	&.expanded {
+		height: 100%;
+
+		> .header .icon {
+			transform: rotate(45deg);
+		}
+
+		> .body {
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: $size-big;
+			padding: $indent-med;
+			opacity: 1;
+		}
+	}
+}
+
+.bottom-panel-avoid {
+	bottom: $size-big;
+	top: 0;
+	left: 0;
+	right: 0;
+	position:absolute;
+	// z-index: 102;
+}
+
+ion-content > div > .bottom-panel-avoid {
+	height: 100%;
+	overflow: auto;
+}
+
+.diner-form {
+	padding: $indent-med;
+	
+	.label {
+		&.required::after {
+			content: "(required)";
+			font-size: $fsize-s2;
+			color: $color-l2;
+			vertical-align: bottom;
+			position: relative;
+			padding-left: $indent-tiny;
+			display: inline;
+		}
+	}
+	.error {
+		color: $warn;
+		font-size: $fsize-s2;
+	}
+}
+
+.diner {
+	padding: $indent-med;
+	position: relative;
+	min-height: $size-big;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+	max-height: ($indent-med * 2) + $size-big;
+	overflow: hidden;
+	
+	.text-container {
+		margin-right: $size-big + $indent-med;
+		margin-top: ($size-big - ($fsize-b2 + $fsize-s2 + $indent-tiny)) / 2;
+		margin-bottom: ($size-big - ($fsize-b2 + $fsize-s2 + $indent-tiny)) / 2;
+	}
+	
+	.name {
+		font-size: $fsize-b2;
+		margin-bottom: $indent-tiny;
+		line-height: $fsize-b2;
+	}
+	
+	.desc {
+		font-size: $fsize-s2;
+		line-height: $fsize-s2;
+		color: $color-l1;
+	}
+	
+	button {
+		position: absolute;
+		right: $indent-med;
+		// margin-top: (($size-med + $fsize-s1) - $size-big) / 2 !important;
+		top: 50%;
+		margin-top: $size-big / -2;
+		height: $size-big;
+		width:$size-big;
+		border-radius: $size-med;
+		background: $back-s2; 
+		text-align: center;
+		outline: none;
+		border: none;
+		color: $color-s2;
+		line-height: $size-big;
+		
+		>.icon {
+			font-size: $fsize-glyph-b2; 
+			color: $color-l2;
+		}
+	}
+	
+	&.no-description {
+		.text-container {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		.name {
+			line-height: $size-big;
+			margin: 0;
+		}
+	}
+	
+	&.ng-leave.ng-leave-active:not(:last-child) {
+		opacity: 0;
+		max-height: 0;
+		padding: 0 $indent-med;
+		min-height: 0;
+		border: none;
+	}
+	&.ng-leave:not(:last-child) {
+		opacity: 1;
+	}
+}
+
+
+
+.diners-list {
+	
+	.ng-enter, .ng-leave {
+		transition: all .5s;
+		position: relative;
+	}
+	
+	.empty.ng-enter {			//enter from
+		top: -100vh;
+	}	
+	.empty.ng-enter-active {	//enter to
+		top: 0;
+	}	
+	.empty.ng-leave {			//leave from
+		top: 0;
+	}	
+	.empty.ng-leave-active {	//leave to
+		top: 100vh;
+	}
+	
+	.list.ng-enter, .list.ng-leave {
+		width: 100%;
+		right: auto;
+		position: absolute;
+	}
+	.list.ng-enter {			//enter from
+		left: -100vw;
+	}	
+	.list.ng-enter-active {	//enter to
+		left: 0;
+	}	
+	.list.ng-leave {			//leave from
+		left: 0;
+	}	
+	.list.ng-leave-active {	//leave to
+		left: 100vw;
+	}
+	.list.ng-enter,
+	.list.ng-leave.ng-leave-active {
+		overflow: visible;
+		border: none;
+		outline: 0;
+	}
+
+	.ng-enter,
+	.ng-leave.ng-leave-active {
+		//leaving
+		opacity: 0;
+	}
+
+	.ng-leave,
+	.ng-enter.ng-enter-active {
+		//entering
+		opacity:1;
+	}
+}
+
+.accent {
+	color: $accent;
+}
+
+.home {
+	font-size: $fsize-b2;
+	h1 {
+		color: $accent;
+	}
+	p {
+		font-size: $fsize-b1;
+	}
+	.name {
+		margin-top: 0;
+	}
+	
+	.ng-enter, .ng-leave {
+		transition: all .5s;
+		position: relative;
+	}
+	
+	.ng-enter {
+		//enter from
+		top: -100vh;
+	}
+	
+	.ng-enter-active {
+		//enter to
+		top: 0;
+	}
+	
+	.ng-leave {
+		//leave from
+		top: 0;
+	}
+	
+	.ng-leave-active {
+		//leave to
+		top: 100vh;
+	}
+
+	.ng-enter,
+	.ng-leave.ng-leave-active {
+		//leaving
+		opacity: 0;
+		height: 0;
+		max-height: 0;
+		padding: 0;
+		margin: 0;
+	}
+
+	.ng-leave,
+	.ng-enter.ng-enter-active {
+		//entering
+		opacity:1;
+	}
+		
+	
+}
+
+.fill {
+	position:absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+ion-header-bar{  
+	h1.title {
+		font-size: 19px !important;
+	}
+}
+
+.popup {
+	background: $back !important;
+	color: $color !important;
+	font-size: $fsize !important;
+	border-radius: $indent-tiny;
+
+	.popup-buttons > button {
+		&:not(:button-positive) {
+			background: $back-s2 !important;
+			color: $color-s2 !important;
+		}
+		&.button-positive {
+			background: $accent !important;
+			color: $contrast !important;
+		}
+	}
+}
